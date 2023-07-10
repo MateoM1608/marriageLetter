@@ -11,11 +11,6 @@
     display: flex;
     text-align: center;
     @include desktop {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/peakpx.jpg");
-    }
-
-    div{
-        margin-bottom: 25px;
     }
 
     h1{
@@ -28,8 +23,6 @@
         font-family: $principal;
         color: white;
         font-size: 25px;
-        margin-top: 70px;
-        margin-bottom: 70px;
     }
 
     span{
@@ -47,8 +40,27 @@
     }
 }
 
+.step1{
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+
+.step2{
+    height: 40%;
+}
+
+.step3{
+    height: 20%;
+}
+
+.step4{
+    height: 15%;
+}
+
+
 .arrowDown{
-    width: 100px;
+    width: 90px;
     position: relative;
 }
 
