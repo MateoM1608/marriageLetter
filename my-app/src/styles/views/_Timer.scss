@@ -11,13 +11,21 @@
         color: $palo_rosa;
         font-size: 80px;
     }
+
+    h2{
+        font-family: $cursive;
+        font-size: 40px;
+    }
+
+    h5{
+        font-family: $cursive;
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+
+
 }
-.invitados{
-    font-family: $cursive;
-    font-size: 60px;
-    padding-top: 50px;
-    padding-bottom: 20px;
-}
+
 
 .timer_countDown{
     display: flex;

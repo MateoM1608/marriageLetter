@@ -10,4 +10,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
+
+    h2{
+        font-family: $cursive;
+        font-size: 50px;
+        color: $palo_rosa;
+        // padding-top: 10px;
+        margin: 0px -10px -15px 0px;
+    }
+
+    h3{
+        font-family: $principal;
+        font-weight: 800;
+        color: grey;
+        padding-top: 25px;
+    }
+
+    span{
+        font-family: $principal;
+        font-size: 15px;
+        color: grey;
+        padding-bottom: 5px;
+    }
+}
+
+.logo_data{
+    padding-top: 60px;
+    text-align: center;
 }

@@ -23,7 +23,7 @@
 
 .linea_espacio{
     background-color: grey;
-    width: 90%;
+    width: 70%;
     height: 0,5px;
 }
 
@@ -37,10 +37,10 @@
 .button{
     background-color: $palo_rosa;
     border: transparent 1px solid;
-    width: 100%;
+    width: 90%;
     padding: 10px 15px 10px 15px;
     font-size: 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     cursor: pointer;
     color: white;
 }
@@ -55,4 +55,14 @@
     background: linear-gradient(#d7d3d30e, #b4b4b457);
     height: 40px;
     width: 90%;
+}
+
+.divider{
+    position: relative;
+    width: 90%;
+    height: 50px;
+    background-image: url('../../images/divider.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
 }

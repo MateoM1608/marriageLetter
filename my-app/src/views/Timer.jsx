@@ -4,10 +4,17 @@ import { useParams } from 'react-router-dom'
 const Timer = () => {
 
     const { nombre } = useParams();
+    const { cantidad } = useParams();
 
     const cambioNombre = (invitados) =>{
         let result
         result = invitados.replaceAll('-',' ');
+        return result;
+    }
+
+    const cambioCantidad = (cantidad) =>{
+        let result
+        result = cantidad.replaceAll('-',' ');
         return result;
     }
 
@@ -56,9 +63,10 @@ const Timer = () => {
 
     return (
         <div className='divGlob'>
-            <h2 className='invitados'>{cambioNombre(nombre)}</h2>
-            <hr className='linea_espacio'/>
             <div className='timer_component'>
+            <h2>{cambioNombre(nombre)}</h2>
+            <h5>({cambioCantidad(cantidad)})</h5>
+            <hr className='linea_espacio'/>
                 <h3>Falta</h3>
                 <div className='timer_countDown'>
                     <div>
@@ -82,7 +90,7 @@ const Timer = () => {
                     </div>
                 </div>
             </div>
-            <div className='sombra_separador'>hola</div>
+            <div className='divider'></div>
         </div>
     );
 }
