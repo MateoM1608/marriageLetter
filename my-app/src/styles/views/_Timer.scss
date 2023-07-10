@@ -1,0 +1,47 @@
+
+.timer_component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15%;
+
+    h3{
+        font-family: $cursive;
+        color: $palo_rosa;
+        font-size: 80px;
+    }
+}
+.invitados{
+    font-family: $cursive;
+    font-size: 60px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.timer_countDown{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding-bottom: 15%;
+
+    h1{
+        color: $palo_rosa_2;
+        font-family: $principal;
+        font-size: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    h4{
+        font-size: 15px;
+        font-family: $principal;
+        color: grey;
+    }
+
+    span{
+        margin: -10px 10px 0px 10px;
+        height: 80px;
+        text-align: center;
+    }
+}

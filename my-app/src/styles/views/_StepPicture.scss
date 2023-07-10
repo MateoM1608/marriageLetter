@@ -1,0 +1,55 @@
+
+.StepPicture_component{
+    // background-image: url("../../images/peakpx.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)), url("../../images/peakpx.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
+    display: flex;
+    text-align: center;
+    @include desktop {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../images/peakpx.jpg");
+    }
+
+    div{
+        margin-bottom: 25px;
+    }
+
+    h1{
+        font-family: $cursive;
+        color: white;
+        font-size: 80px;
+    }
+
+    h2{
+        font-family: $principal;
+        color: white;
+        font-size: 25px;
+        margin-top: 70px;
+        margin-bottom: 70px;
+    }
+
+    span{
+        padding: 4px 11px 4px 11px;
+        background-color: white;
+        font-family: $principal;
+        border-radius: 25px;
+        color: $palo_rosa;
+        font-size: 30px;
+    }
+
+    h5{
+        color: white;
+        font-family: $principal;
+    }
+}
+
+.arrowDown{
+    width: 100px;
+    position: relative;
+}
+
+

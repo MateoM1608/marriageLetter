@@ -1,0 +1,58 @@
+
+.body{
+    display: block;
+    margin: 0px;
+}
+.blockFull {
+    width: 100%;
+    height: 100vh;
+}
+
+.divGlob{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.line_h{
+    width: 1px;
+    height: 100%;
+    background-color: grey;
+}
+
+.linea_espacio{
+    background-color: grey;
+    width: 90%;
+    height: 0,5px;
+}
+
+.linea_espacio_blanca{
+    background-color: white;
+    text-align: center;
+    width: 90%;
+    height: 3px;
+}
+
+.button{
+    background-color: $palo_rosa;
+    border: transparent 1px solid;
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+.button:hover{
+    background-color: white;
+    color: $palo_rosa;
+    border: $palo_rosa 1px solid;
+}
+
+.sombra_separador{
+    background: linear-gradient(#d7d3d30e, #b4b4b457);
+    height: 40px;
+    width: 90%;
+}
