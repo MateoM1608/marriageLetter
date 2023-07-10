@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Col } from "react-bootstrap";
 import {GiBigDiamondRing} from 'react-icons/gi'
 import {LiaGlassMartiniAltSolid} from 'react-icons/lia'
 import { IconContext } from "react-icons";
@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 const Data = () => {
     return (
         <Container className="data_divGlob">
-            <Col>
+            <Col className="container_data">
                 <Col className="data_card">
                     <div className="logo_data">
                         <IconContext.Provider value={{size:"90px", color: '#eebbbb'}}>

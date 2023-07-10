@@ -12,6 +12,7 @@ const Home = () => {
             <StepPicture/>
             <Timer/>
             <Data/>
+            <div className='divider'></div>
             <Pictures/>
             <Gifts/>
             <Footer/>
