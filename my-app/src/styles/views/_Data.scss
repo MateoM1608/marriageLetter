@@ -40,6 +40,23 @@
     text-align: center;
 }
 
+.logo_modal{
+    padding-top: 20px;
+    text-align: center;
+}
+
 .container_data{
     padding-bottom: 40px;
+}
+
+.modal_data{
+    text-align: center;
+
+    h2{
+        font-family: $cursive;
+        font-size: 35px;
+        color: $palo_rosa;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
 }

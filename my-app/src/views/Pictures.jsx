@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import {LiaCameraRetroSolid} from 'react-icons/lia'
 import { IconContext } from "react-icons";
+import CarouselComponent from '../Components/Carousel'
 
 const Pictures = () => {
     return (
@@ -18,6 +19,7 @@ const Pictures = () => {
                         </div>
                     </IconContext.Provider>
                 </div>
+                <CarouselComponent/>
             </div>
         </Container>
     );

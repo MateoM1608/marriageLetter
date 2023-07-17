@@ -14,6 +14,7 @@ const Home = () => {
             <Data/>
             <div className='divider'></div>
             <Pictures/>
+            <div className='divider'></div>
             <Gifts/>
             <Footer/>
         </div>
