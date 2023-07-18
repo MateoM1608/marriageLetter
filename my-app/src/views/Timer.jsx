@@ -43,7 +43,7 @@ const Timer = () => {
         if (!timeLeft[interval]) {
             return;
         }
-        
+
         timerComponents.push(
             <div>
                 <h2>
@@ -64,6 +64,7 @@ const Timer = () => {
     return (
         <div className='divGlob'>
             <div className='timer_component'>
+            <h6>Invitados:</h6>
             <h2>{cambioNombre(nombre)}</h2>
             <h5>({cambioCantidad(cantidad)})</h5>
             <hr className='linea_espacio'/>

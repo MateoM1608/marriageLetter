@@ -8,6 +8,7 @@ import { IconContext } from "react-icons";
 const Data = () => {
 
     const [lgShow, setLgShow] = useState(false);
+    const [CeremoniaShow, setCeremoniaShow] = useState(false);
 
     return (
         <Container className="data_divGlob">
@@ -28,7 +29,7 @@ const Data = () => {
                     <button className="button">Agendar</button>
                     <h3>Lugar</h3>
                     <span>Parroquia San Juan de la Tasajera</span>
-                    <button 
+                    <button
                         onClick={() => setLgShow(true)}
                         className="button"
                     >
@@ -57,7 +58,10 @@ const Data = () => {
                     <button className="button">Agendar</button>
                     <h3>Lugar</h3>
                     <span>Casa de la abuela</span>
-                    <button className="button">Confirmar asistencia</button>
+                    <button
+                        onClick={() => setCeremoniaShow(true)}
+                        className="button"
+                    >Confirmar asistencia</button>
                     <h3>Dirección</h3>
                     <span>Carrera 38 #49B-06 (A 4 minutos de la iglesia en dirección al parque de copacabana)</span>
                     <button className="button">¿Como llegar?</button>
@@ -67,10 +71,11 @@ const Data = () => {
                 size="lg"
                 show={lgShow}
                 onHide={() => setLgShow(false)}
-                aria-labelledby="example-modal-sizes-title-lg"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
             >
                 <Modal.Header closeButton>
-                <Modal.Title id="example-modal-sizes-title-lg">
+                <Modal.Title id="contained-modal-title-vcenter">
                 </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -83,6 +88,58 @@ const Data = () => {
                             </IconContext.Provider>
                         </div>
                         <h2>¿Asistes a la ceremonia?</h2>
+                        <div>
+                            <Form>
+                                <div key={`inline-radio`} className="mb-3">
+                                    <Form.Check
+                                        inline
+                                        label="Si! Confirmo"
+                                        name="group1"
+                                        type='radio'
+                                        id={`inline-radio-1`}
+                                    />
+                                    <Form.Check
+                                        inline
+                                        label="No puedo :("
+                                        name="group1"
+                                        type='radio'
+                                        id={`inline-radio-2`}
+                                    />
+                                </div>
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Ingrese nombre completo"
+                                    className="mb-5"
+                                >
+                                    <Form.Control type="name" placeholder="" />
+                                </FloatingLabel>
+                            </Form>
+                            <button className="button">Enviar</button>
+                        </div>
+                    </div>
+                </Modal.Body>
+            </Modal>
+            <Modal
+                size="lg"
+                show={CeremoniaShow}
+                onHide={() => setCeremoniaShow(false)}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
+                <Modal.Header closeButton>
+                <Modal.Title id="contained-modal-title-vcenter">
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="modal_data">
+                        <div className="logo_modal">
+                            <IconContext.Provider value={{size:"60px", color: '#eebbbb'}}>
+                                <div>
+                                    <GiBigDiamondRing/>
+                                </div>
+                            </IconContext.Provider>
+                        </div>
+                        <h2>¿Asistes a la Recepción?</h2>
                         <div>
                             <Form>
                                 <div key={`inline-radio`} className="mb-3">
