@@ -22,15 +22,15 @@
 
     h3{
         font-family: $principal;
-        font-weight: 500;
-        color: grey;
+        font-weight: 700;
+        color: $gris_base;
         padding-top: 25px;
     }
 
     span{
         font-family: $principal;
         font-size: 15px;
-        color: grey;
+        color: $gris_base;
         padding-bottom: 5px;
     }
 }

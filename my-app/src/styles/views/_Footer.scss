@@ -4,7 +4,7 @@
     padding-bottom: 55px;
     display: flex;
     flex-direction: column;
-    background-color: rgba(128, 128, 128, 0.514);
+    background-color: $gris_base;
 }
 
 .links_footer{
@@ -39,7 +39,7 @@
         background-color: white;
         font-family: $principal;
         border-radius: 20px;
-        color: rgba(128, 128, 128, 0.514);
+        color: $gris_base;
         font-size: 20px;
     }
 }

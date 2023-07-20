@@ -1,18 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import { Container, Col, Modal, Form, FloatingLabel  } from "react-bootstrap";
 import {GiBigDiamondRing} from 'react-icons/gi'
 import {LiaGlassMartiniAltSolid} from 'react-icons/lia'
 import { IconContext } from "react-icons";
 
 
-const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow}) => {
-
-    // const [lgShow, setLgShow] = useState(false);
-    // const [CeremoniaShow, setCeremoniaShow] = useState(false);
-    const [AgendaCeremonia] = useState("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG9jZXVqOXBvcjFkdjFmamdoNjdvOTVsZ2UgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&tmsrc=mateo.monsalvemedina13%40gmail.com")
-    const [AgendaRecepcion] = useState("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG9jZXVqOXBvcjFkdjFmamdoNjdvOTVsZ2UgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&tmsrc=mateo.monsalvemedina13%40gmail.com")
-    const [MapCeremonioa] = useState("https://maps.app.goo.gl/TmpY6bK7u3sxfwma8?g_st=iwb")
-    const [MapRecepcion] = useState("https://maps.app.goo.gl/vzfobpzjEfy9bfcbA?g_st=iw")
+const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremonia, AgendaRecepcion, MapCeremonioa, MapRecepcion}) => {
 
     const RedirectLink = (url) => {
         window.open(url);
