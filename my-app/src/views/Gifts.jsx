@@ -9,7 +9,7 @@ const Gifts = () => {
             <div className="container_gift">
                 <h1>Regalos</h1>
                 <div className="logo_picture">
-                    <IconContext.Provider value={{size:"90px", color: '#eebbbb'}}>
+                    <IconContext.Provider value={{size:"60px", color: '#eebbbb'}}>
                         <div>
                             <BsGift/>
                         </div>

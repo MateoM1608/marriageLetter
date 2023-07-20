@@ -2,6 +2,7 @@
 .container_gift{
     text-align: center;
     padding-top: 35px;
+    padding-bottom: 55px;
 
     h1{
         font-family: $cursive;
@@ -11,8 +12,9 @@
 
     h4{
         font-family: $principal;
-        font-size: 15px;
+        font-size: 25px;
         color: grey;
         padding-top: 40px;
+        font-weight: 500;
     }
 }

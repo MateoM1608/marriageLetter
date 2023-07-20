@@ -5,10 +5,26 @@ import {LiaGlassMartiniAltSolid} from 'react-icons/lia'
 import { IconContext } from "react-icons";
 
 
-const Data = () => {
+const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow}) => {
 
-    const [lgShow, setLgShow] = useState(false);
-    const [CeremoniaShow, setCeremoniaShow] = useState(false);
+    // const [lgShow, setLgShow] = useState(false);
+    // const [CeremoniaShow, setCeremoniaShow] = useState(false);
+    const [AgendaCeremonia] = useState("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG9jZXVqOXBvcjFkdjFmamdoNjdvOTVsZ2UgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&tmsrc=mateo.monsalvemedina13%40gmail.com")
+    const [AgendaRecepcion] = useState("https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG9jZXVqOXBvcjFkdjFmamdoNjdvOTVsZ2UgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&tmsrc=mateo.monsalvemedina13%40gmail.com")
+    const [MapCeremonioa] = useState("https://maps.app.goo.gl/TmpY6bK7u3sxfwma8?g_st=iwb")
+    const [MapRecepcion] = useState("https://maps.app.goo.gl/vzfobpzjEfy9bfcbA?g_st=iw")
+
+    const RedirectLink = (url) => {
+        window.open(url);
+    };
+
+    const toggleLgShow = () => {
+        setLgShow(!lgShow)
+    }
+
+    const toggleCeremonia = () => {
+        setCeremoniaShow(!CeremoniaShow)
+    }
 
     return (
         <Container className="data_divGlob">
@@ -26,21 +42,19 @@ const Data = () => {
                     <hr className="linea_espacio"/>
                     <h3>Día</h3>
                     <span>Sabado 16 de septiembre - 13:30hs</span>
-                    <button className="button">Agendar</button>
+                    <button className="button" onClick={() => RedirectLink(AgendaCeremonia)}>
+                        Agendar
+                    </button>
                     <h3>Lugar</h3>
                     <span>Parroquia San Juan de la Tasajera</span>
-                    <button
-                        onClick={() => setLgShow(true)}
-                        className="button"
-                    >
+                    <button onClick={() => toggleLgShow(true)} className="button" >
                         Confirmar asistencia
                     </button>
-                    {/* <a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NG9jZXVqOXBvcjFkdjFmamdoNjdvOTVsZ2UgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&amp;tmsrc=mateo.monsalvemedina13%40gmail.com">
-                        <img border="0" src="https://www.google.com/calendar/images/ext/gc_button1_es.gif"/>
-                    </a> */}
                     <h3>Dirección</h3>
                     <span>Cra. 28, Copacabana, Antioquia</span>
-                    <button className="button">¿Como llegar?</button>
+                    <button className="button" onClick={() => RedirectLink(MapCeremonioa)} >
+                        ¿Como llegar?
+                    </button>
                 </Col>
                 <Col className="data_card">
                     <div className="logo_data">
@@ -55,22 +69,24 @@ const Data = () => {
                     <hr className="linea_espacio"/>
                     <h3>Día</h3>
                     <span>Sabado 16 de septiembre - 15:30hs</span>
-                    <button className="button">Agendar</button>
+                    <button className="button" onClick={() => RedirectLink(AgendaRecepcion)}>Agendar</button>
                     <h3>Lugar</h3>
                     <span>Casa de la abuela</span>
                     <button
-                        onClick={() => setCeremoniaShow(true)}
+                        onClick={() => toggleCeremonia(true)}
                         className="button"
                     >Confirmar asistencia</button>
                     <h3>Dirección</h3>
                     <span>Carrera 38 #49B-06 (A 4 minutos de la iglesia en dirección al parque de copacabana)</span>
-                    <button className="button">¿Como llegar?</button>
+                    <button className="button" onClick={() => RedirectLink(MapRecepcion)}>
+                        ¿Como llegar?
+                    </button>
                 </Col>
             </Col>
             <Modal
                 size="lg"
                 show={lgShow}
-                onHide={() => setLgShow(false)}
+                onHide={() => toggleLgShow(false)}
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -122,7 +138,7 @@ const Data = () => {
             <Modal
                 size="lg"
                 show={CeremoniaShow}
-                onHide={() => setCeremoniaShow(false)}
+                onHide={() => toggleCeremonia(false)}
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
             >
@@ -135,7 +151,7 @@ const Data = () => {
                         <div className="logo_modal">
                             <IconContext.Provider value={{size:"60px", color: '#eebbbb'}}>
                                 <div>
-                                    <GiBigDiamondRing/>
+                                    <LiaGlassMartiniAltSolid/>
                                 </div>
                             </IconContext.Provider>
                         </div>
