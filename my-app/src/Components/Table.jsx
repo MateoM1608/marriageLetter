@@ -49,7 +49,6 @@ const TableComponent = ({headers, data, totalInvitados, totalConfirmados}) => {
             </tbody>
         </Table>
     );
-
 }
 
 export default TableComponent;
