@@ -30,9 +30,9 @@ const Home = () => {
                 MapRecepcion={MapRecepcion}
             />
             <div className='divider'></div>
-            <Pictures/>
-            <div className='divider'></div>
             <Gifts/>
+            <div className='divider'></div>
+            <Pictures/>
             <Footer
                 setCeremoniaShow={setCeremoniaShow}
                 setLgShow={setLgShow}
