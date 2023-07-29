@@ -1,21 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Table } from 'react-bootstrap';
 
-const TableComponent = ({headers, data, totalInvitados, totalConfirmados}) => {
-
-    const [ total, setTotal ] = useState(0);
-
-    // const totalizado = (data) => {
-    //     let _total;
-    //     data.map(datos => {
-    //         _total += datos.asistiran
-    //     })
-    //     setTotal(_total)
-    // }
-
-    useEffect((data) =>{
-        // totalizado(data)
-    },[]);
+const TableComponent = ({headers, data, totalInvitados, totalAsistentes, totalRecepcion}) => {
 
     return (
         <Table striped>
@@ -37,6 +23,7 @@ const TableComponent = ({headers, data, totalInvitados, totalConfirmados}) => {
                             <td>{dato.nombres}</td>
                             <td>{dato.invitados}</td>
                             <td>{dato.asistiran}</td>
+                            <td>{dato.recepcion}</td>
                         </tr>
                     ))
                 }
@@ -44,7 +31,8 @@ const TableComponent = ({headers, data, totalInvitados, totalConfirmados}) => {
                     <td></td>
                     <td>Total</td>
                     <td>{totalInvitados}</td>
-                    <td>{totalConfirmados}</td>
+                    <td>{totalAsistentes}</td>
+                    <td>{totalRecepcion}</td>
                 </tr>
             </tbody>
         </Table>

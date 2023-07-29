@@ -5,18 +5,29 @@ import * as XLSX from 'xlsx'
 import axios from 'axios'
 import env from 'react-dotenv'
 import { saveAs } from 'file-saver';
+import {ClipLoader} from 'react-spinners'
 
 const Admin = () => {
 
 
     const [ totalAsistentes, setTotalAsistentes ] = useState([]);
-    const [ totalConfirmados, setTotalConfirmados ] = useState([]);
-    const [ totalInvitados, setTotalInvitados ] = useState([]);
+    const [ totalConfirmados, setTotalConfirmados ] = useState(0);
+    const [ totalInvitados, setTotalInvitados ] = useState(0);
+    const [ totalRecepcion, setTotalRecepcion ] = useState(0);
+    const [ loading, setLoading ] = useState(false);
+
+    let showLoading;
+
+    if(loading === true){
+        showLoading = <div className="spinner"><ClipLoader color="#cc9b9a"/></div>
+    }else{
+        showLoading = null
+    }
 
     const descargarLink = () => {
-
         let asistentes = [];
         let dataAsistente = [];
+        setLoading(true)
         axios.get(`${env.API_URL}/link`)
         .then(res => {
             dataAsistente = res.data
@@ -50,15 +61,18 @@ const Admin = () => {
                 new Blob([wbout], { type: "application/octet-stream" }),
                 "Links_invitaciones.xlsx"
             );
+            setLoading(false)
         })
 
     }
 
     const getAsistentes = () => {
+        setLoading(true)
 
         let dataAsistente = [];
         let totalConfirmados = 0;
         let totalInvitados = 0;
+        let totalRecepcion = 0;
         axios.get(`${env.API_URL}/todos`)
         .then(res => dataAsistente = res.data)
         .then(() => {
@@ -66,10 +80,13 @@ const Admin = () => {
             dataAsistente.map(data => {
                 totalConfirmados += data.asistiran
                 totalInvitados += data.invitados
+                totalRecepcion += data.recepcion
             })
 
             setTotalConfirmados(totalConfirmados)
             setTotalInvitados(totalInvitados)
+            setTotalRecepcion(totalRecepcion)
+            setLoading(false)
         })
     }
 
@@ -83,28 +100,14 @@ const Admin = () => {
             data:'invitados'
         },
         {
-            label:'Asistirán',
-            data: 'confirmo'
+            label:'Ceremonia',
+            data: 'asistiran'
+        },
+        {
+            label:'Recepción',
+            data: 'recepcion'
         }
     ];
-
-    const data = [
-        {
-            'nombres':'Mateo y Daniela',
-            'invitados': 2,
-            'asistiran': 0,
-        },
-        {
-            'nombres':'Mateo y Daniela',
-            'invitados': 2,
-            'asistiran': 0,
-        },
-        {
-            'nombres':'Mateo y Daniela',
-            'invitados': 2,
-            'asistiran': 0,
-        }
-    ]
 
     useEffect(() => {
         getAsistentes()
@@ -119,12 +122,14 @@ const Admin = () => {
                     data={totalAsistentes}
                     totalInvitados={totalInvitados}
                     totalAsistentes={totalConfirmados}
+                    totalRecepcion={totalRecepcion}
                 />
             </div>
             <div>
                 <h1>Desargar Link de invitaciones</h1>
                 <button className="button" onClick={() => descargarLink()}>Descargar</button>
             </div>
+            {showLoading}
         </Container>
     )
 }

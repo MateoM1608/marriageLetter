@@ -1,11 +1,32 @@
-import React from "react";
-import { Container, Col, Modal, Form, FloatingLabel  } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Container, Col, Modal, Form } from "react-bootstrap";
 import {GiBigDiamondRing} from 'react-icons/gi'
 import {LiaGlassMartiniAltSolid} from 'react-icons/lia'
 import { IconContext } from "react-icons";
+import { useParams } from 'react-router-dom'
+import axios from "axios";
+import {ClipLoader} from 'react-spinners'
+import env from 'react-dotenv'
+import Swal from 'sweetalert2'
 
 
 const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremonia, AgendaRecepcion, MapCeremonioa, MapRecepcion}) => {
+
+    const { cantidad, id } = useParams();
+    const [invitados, setInvitados] = useState([])
+    const [ loading, setLoading ] = useState(false);
+    const [update, setUpdate] = useState({
+                                    asistiran : null,
+                                    recepcion : null
+                                })
+
+    let showLoading;
+
+    if(loading === true){
+        showLoading = <div className="spinner"><ClipLoader color="#cc9b9a"/></div>
+    }else{
+        showLoading = null
+    }
 
     const RedirectLink = (url) => {
         window.open(url);
@@ -18,6 +39,96 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
     const toggleCeremonia = () => {
         setCeremoniaShow(!CeremoniaShow)
     }
+
+    const submitCeremonia = (e) => {
+        if(update.asistiran === null){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No seleccionaste ninguna opción!',
+            })
+        }else{
+            e.preventDefault()
+                setLoading(true)
+                axios.put(`http://localhost:3001/bodas`, {
+                    id:id,
+                    asistencia: update.asistiran
+                })
+                .then(() => {
+                }).then(() => {
+                    setLoading(false)
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Confirmaste la asistencia a la Ceremonia',
+                        showConfirmButton: false,
+                        timer: 1700
+                    })
+                    setUpdate({
+                        asistiran : null,
+                        recepcion : null
+                    })
+                    toggleLgShow(false)
+                })
+        }
+    }
+
+    const submitRecepcion = (e) => {
+        if(update.recepcion === null){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No seleccionaste ninguna opción!',
+            })
+        }else{
+            e.preventDefault()
+            setLoading(true)
+            axios.put(`http://localhost:3001/bodas`,{
+                id: id,
+                recepcion: update.recepcion
+            })
+            .then(() => {
+            })
+            .then(() => {
+                setLoading(false)
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Confirmaste la asistencia a la Recepción',
+                    showConfirmButton: false,
+                    timer: 1700
+                })
+                setUpdate({
+                    asistiran : null,
+                    recepcion : null
+                })
+                toggleCeremonia(false)
+            })
+        }
+    }
+
+    const updateForm = (data, target) => {
+        data === 'recepcion' ?
+        setUpdate({
+            ...update,
+            recepcion: target,
+        })
+        : setUpdate({
+            ...update,
+            asistiran: target
+        })
+    }
+
+
+    useEffect(()=>{
+
+        let _invitados = cantidad.split('-')[0]
+        let arrayInv = [];
+        for (let index = 1; index <= _invitados; index++) {
+            arrayInv.push(index)
+        }
+        setInvitados(arrayInv)
+    },[])
 
     return (
         <Container className="data_divGlob">
@@ -36,7 +147,12 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
                     <h3>Día</h3>
                     <span>Sabado 16 de septiembre - 13:30hs</span>
                     <button className="button" onClick={() => RedirectLink(AgendaCeremonia)}>
+                    <a
+                        className="hrefNone"
+                        target="_blank"
+                        href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MW9oZjlhY2hiaWQ5MHBobnJmbjk5czNtdnUgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&amp;tmsrc=mateo.monsalvemedina13%40gmail.com">
                         Agendar
+                    </a>
                     </button>
                     <h3>Lugar</h3>
                     <span>Parroquia San Juan de la Tasajera</span>
@@ -75,7 +191,7 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
                         ¿Como llegar?
                     </button>
                 </Col>
-            </Col>
+            </Col>-
             <Modal
                 size="lg"
                 show={lgShow}
@@ -96,36 +212,32 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
                                 </div>
                             </IconContext.Provider>
                         </div>
-                        <h2>¿Asistes a la ceremonia?</h2>
+                        <h2>¿Cantidad de asistentes a la ceremonia?</h2>
                         <div>
                             <Form>
-                                <div key={`inline-radio`} className="mb-3">
-                                    <Form.Check
-                                        inline
-                                        label="Si! Confirmo"
-                                        name="group1"
-                                        type='radio'
-                                        id={`inline-radio-1`}
-                                    />
-                                    <Form.Check
-                                        inline
-                                        label="No puedo :("
-                                        name="group1"
-                                        type='radio'
-                                        id={`inline-radio-2`}
-                                    />
-                                </div>
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Ingrese nombre completo"
-                                    className="mb-5"
+                                <Form.Select
+                                    onChange={(e) => updateForm('ceremonia', e.target.value)}
+                                    aria-label="Default select example"
                                 >
-                                    <Form.Control type="name" placeholder="" />
-                                </FloatingLabel>
+                                    <option>Seleccione cantidad de personas</option>
+                                    <option value={0} >No podremos asistir</option>
+                                    {
+                                        invitados.map((index)=>(
+                                            <option key={index} value={index}>{index}</option>
+                                        ))
+                                    }
+                                </Form.Select>
                             </Form>
-                            <button className="button">Enviar</button>
+                            <button
+                                onClick={(e) => submitCeremonia(e)}
+                                style={{marginTop:"30px"}}
+                                className="button"
+                            >
+                                Enviar
+                            </button>
                         </div>
                     </div>
+                    {showLoading}
                 </Modal.Body>
             </Modal>
             <Modal
@@ -148,36 +260,32 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
                                 </div>
                             </IconContext.Provider>
                         </div>
-                        <h2>¿Asistes a la Recepción?</h2>
+                        <h2>¿Cantidad de asistentes a la Recepción?</h2>
                         <div>
                             <Form>
-                                <div key={`inline-radio`} className="mb-3">
-                                    <Form.Check
-                                        inline
-                                        label="Si! Confirmo"
-                                        name="group1"
-                                        type='radio'
-                                        id={`inline-radio-1`}
-                                    />
-                                    <Form.Check
-                                        inline
-                                        label="No puedo :("
-                                        name="group1"
-                                        type='radio'
-                                        id={`inline-radio-2`}
-                                    />
-                                </div>
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Ingrese nombre completo"
-                                    className="mb-5"
+                                <Form.Select
+                                    onChange={(e) => updateForm('recepcion', e.target.value)}
+                                    aria-label="Default select example"
                                 >
-                                    <Form.Control type="name" placeholder="" />
-                                </FloatingLabel>
+                                    <option>Seleccione cantidad de personas</option>
+                                    <option value={0} >No podremos asistir</option>
+                                    {
+                                        invitados.map((index)=>(
+                                            <option key={index} value={index}>{index}</option>
+                                        ))
+                                    }
+                                </Form.Select>
                             </Form>
-                            <button className="button">Enviar</button>
+                            <button
+                                onClick={(e) => submitRecepcion(e)}
+                                style={{marginTop:"30px"}}
+                                className="button"
+                            >
+                                Enviar
+                            </button>
                         </div>
                     </div>
+                    {showLoading}
                 </Modal.Body>
             </Modal>
         </Container>
