@@ -50,7 +50,8 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
         }else{
             e.preventDefault()
                 setLoading(true)
-                axios.put(`http://localhost:3001/bodas`, {
+                // axios.put(`http://localhost:3001/bodas`, {
+                axios.put(`https://apiclubterranova-production.up.railway.app/bodas`, {
                     id:id,
                     asistencia: update.asistiran
                 })
@@ -83,7 +84,8 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
         }else{
             e.preventDefault()
             setLoading(true)
-            axios.put(`http://localhost:3001/bodas`,{
+            // axios.put(`http://localhost:3001/bodas`,{
+            axios.put(`https://apiclubterranova-production.up.railway.app/bodas`,{
                 id: id,
                 recepcion: update.recepcion
             })
