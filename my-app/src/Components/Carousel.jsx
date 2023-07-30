@@ -1,9 +1,9 @@
 import Carousel from 'react-bootstrap/Carousel';
-import img1 from '../images/Carousel/imagen1.jpg'
-import img2 from '../images/Carousel/imagen2.jpg'
-import img3 from '../images/Carousel/imagen3.jpg'
-import img4 from '../images/Carousel/imagen4.jpg'
-import img5 from '../images/Carousel/imagen5.jpg'
+import img1 from '../images/Carousel/or1.jpg'
+import img2 from '../images/Carousel/or2.jpg'
+import img3 from '../images/Carousel/or3.jpg'
+import img4 from '../images/Carousel/or4.JPG'
+import img5 from '../images/Carousel/or5.jpg'
 
 function CarouselComponent() {
     return (
