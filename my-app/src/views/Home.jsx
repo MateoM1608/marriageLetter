@@ -5,7 +5,7 @@ import Data from "./Data";
 import Pictures from "./Pictures";
 import Gifts from "./Gifts";
 import Footer from "./Footer";
-
+import AudioPlayer from "../Components/AudioPlayer";
 const Home = () => {
 
     const [lgShow, setLgShow] = useState(false);
@@ -41,6 +41,7 @@ const Home = () => {
                 AgendaCeremonia={AgendaCeremonia}
                 AgendaRecepcion={AgendaRecepcion}
             />
+            <AudioPlayer/>
         </div>
     );
 };
