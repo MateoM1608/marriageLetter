@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import img1 from '../images/Carousel/1.jpeg'
+// import img1 from '../images/Carousel/1.jpeg'
 import img2 from '../images/Carousel/2.jpeg'
 import img3 from '../images/Carousel/3.jpeg'
 import img4 from '../images/Carousel/4.jpeg'
@@ -19,7 +19,7 @@ function CarouselComponent() {
     return (
         <div className='container_carousel'>
             <Carousel data-bs-theme="dark">
-                <Carousel.Item>
+                {/* <Carousel.Item>
                     <img
                     className="d-block w-100"
                     src={img1}
@@ -27,7 +27,7 @@ function CarouselComponent() {
                     />
                     <Carousel.Caption>
                     </Carousel.Caption>
-                </Carousel.Item>
+                </Carousel.Item> */}
                 <Carousel.Item>
                     <img
                     className="d-block w-100 "
