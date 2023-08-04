@@ -25,7 +25,7 @@ const Footer = ({setCeremoniaShow,setLgShow, CeremoniaShow, lgShow, AgendaCeremo
                 <h2 onClick={() => toggleLgShow(true)}>Confirmar asistencia a ceremonia</h2>
                 <h2 onClick={() => toggleCeremonia(true)}>Confirmar asistencia a recepcion</h2>
                 <h2 onClick={() => RedirectLink(AgendaCeremonia)}>Agendar Ceremonia</h2>
-                <h2 onClick={() => RedirectLink(AgendaRecepcion)}>Agendar Fiesta</h2>
+                <h2 onClick={() => RedirectLink(AgendaRecepcion)}>Agendar recepción</h2>
             </div>
         </div>
     );

@@ -30,6 +30,9 @@
         color: $gris_base;
     }
 
+    @include desktop {
+        padding-top: 2%;
+    }
 
 }
 

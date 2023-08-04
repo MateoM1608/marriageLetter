@@ -117,7 +117,7 @@ const Home = () => {
                     <Modal.Body>
                         <div className="modalMusic">
                             <h2>Bienvenidos a la invitación de Camilo y Ana</h2>
-                            <h5>La música de fondo es pate de la experiencia</h5>
+                            <h5>La música de fondo es parte de la experiencia</h5>
                             <div className="">
                                 <button className="buttonMusic" onClick={() => openIt(true)} >
                                     Ingresar con musica

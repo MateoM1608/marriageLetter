@@ -47,6 +47,11 @@
 
 .container_data{
     padding-bottom: 40px;
+
+    @include desktop {
+        display: flex;
+        flex-direction: row;
+    }
 }
 
 .modal_data{
