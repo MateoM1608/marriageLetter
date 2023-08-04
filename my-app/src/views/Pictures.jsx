@@ -19,7 +19,9 @@ const Pictures = () => {
                         </div>
                     </IconContext.Provider>
                 </div>
-                <CarouselComponent/>
+                <div class="mb-5">
+                    <CarouselComponent/>
+                </div>
             </div>
         </Container>
     );

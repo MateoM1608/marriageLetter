@@ -87,3 +87,47 @@
     text-decoration:none;
     color: white;
 }
+
+.button_music{
+    background-color: #eebbbb4b;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.buttonMusic{
+    background-color: $palo_rosa;
+    border: transparent 1px solid;
+    width: 70%;
+    margin-bottom: 15px;
+    padding: 10px 15px 10px 15px;
+    font-size: 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+}
+
+.buttonMusic:hover{
+    background-color: white;
+    color: $palo_rosa;
+    border: $palo_rosa 1px solid;
+}
+
+.modalMusic{
+    text-align: center;
+
+    h2{
+        color: $palo_rosa;
+        font-family: $principal;
+        font-size: 32px;
+        font-weight: 300;
+    }
+
+    h5{
+        color: $gris_base;
+        font-family: $principal;
+        font-size: 15px;
+        font-weight: 200;
+        margin-bottom: 25px;
+        margin-top: 25px;
+    }
+}

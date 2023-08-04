@@ -149,12 +149,7 @@ const Data = ({lgShow, CeremoniaShow, setLgShow, setCeremoniaShow, AgendaCeremon
                     <h3>Día</h3>
                     <span>Sabado 16 de septiembre - 13:30hs</span>
                     <button className="button" onClick={() => RedirectLink(AgendaCeremonia)}>
-                    <a
-                        className="hrefNone"
-                        target="_blank"
-                        href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=MW9oZjlhY2hiaWQ5MHBobnJmbjk5czNtdnUgbWF0ZW8ubW9uc2FsdmVtZWRpbmExM0Bt&amp;tmsrc=mateo.monsalvemedina13%40gmail.com">
                         Agendar
-                    </a>
                     </button>
                     <h3>Lugar</h3>
                     <span>Parroquia San Juan de la Tasajera</span>
